@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="{% static 'acre/css/estilo.css' %}">
+   
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'ca,eu,gl,en,fr,it,pt,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <title>Home</title>
+</head>
+
+<body>
+
+    <body>
+
+
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+                <li data-target="#demo" data-slide-to="3"></li>
+                <li data-target="#demo" data-slide-to="4"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="{% url 'home' %}">
+
+                        <img src="{% static 'acre/imagenes/banner acre.jfif' %}" alt="acre logo" width="1100" height="500">
+                    </a>
+
+                </div>
+                <div class="carousel-item">
+                    <a href="{% url 'hollowknight' %}">
+                        <img src="{% static 'acre/imagenes/hollow banner.jpg' %}" alt="hollow banner" width="1100" height="500">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="{%  url 'soulsborne'%}">
+                        <img src="{% static 'acre/imagenes/souls.jpg' %}" alt="souls" width="1100" height="500">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="sekiropage.html">
+                        <img src="{% static 'acre/imagenes/sekiro.jpg' %}" alt="sekiro banner" width="1100" height="500">
+                    </a>
+                </div>
+
+                <div class="carousel-item">
+                    <a href="littlenightmares.html">
+                        <img src="{% static 'acre/imagenes/little banner.jpeg' %}" alt="little banner" width="1100" height="500">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+        <div style="color:white; background-color: rgb(75, 74, 74); " >
+            <p><a href="{% url 'home' %}" style="float: left; width: 50%; ;color: white;font-size: 30px;">Acre Home</a>
+
+                
+                    {% if user.is_authenticated %}
+                    
+                        <p>Bienvenido {{ user.username }}</p>
+                        <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
+                    
+                    {% else %}
+                    
+                        <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+                    
+                    {% endif %}
+                    
+            </p>
+        
+        </div>
+        <p id="google_translate_element" class="google"></p>
+
+        <!-- titulo -->
+        <center>
+            <h3 style="color:white ; background-color: black;margin-top: 10px; margin-bottom: 20px;">Videos mas
+                recientes </h3>
+        </center>
+        <!-- contenedores -->
+        <div class="container" style="text-align: center;">
+            <div class="row">
+                <div class="col-md-4 col-sm-12"> <a href="">
+                        <div><img src="{% static 'acre/imagenes/hthum13.jpg' %}" alt="thum 13">
+                    </a></div>
+                <b> Loreplay 13 Hollow knight</b>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div><img src="{% static 'acre/imagenes/hthum12.jpg' %}" alt="thum 12"></div>
+                <b>Loreplay 12 Hollow knight </b>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div><img src="{% static 'acre/imagenes/little.jpg' %}" alt="thum little"></div>
+                <b>Little nightmares Todos los personajes, NPCs y jefes como nunca los habias visto</b>
+
+            </div>
+
+        </div>
+        </div>
+        <!-- titulo -->
+        <center>
+            <h3 style="color:white ; background-color: black;margin-top: 20px; margin-bottom: 20px;">Ultimas
+                transmisiones </h3>
+        </center>
+        <div class="container" style="text-align: center;">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div><img src="{% static 'acre/imagenes/retodemons2.jpg' %}" alt="demons2">
+                    </div><b> Demon's souls sin morir 2/3 </b>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div><img src="{% static 'acre/imagenes/retodemons3.jpg' %}" alt="demons3"></div>
+                    <b>Demon's souls sin morir 3/3</b>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div><img src="{% static 'acre/imagenes/sek1.jpg' %}" alt="thum little"></div>
+                    <b>Sekiro sin morir 1/3</b>
+
+                </div>
+
+            </div>
+        </div>
+        <center>
+            <div style="margin-top: 30px; margin-bottom: 10px;">www.Acre2021.esp</div>
+        </center>
+
+    </body>
+
+</html>

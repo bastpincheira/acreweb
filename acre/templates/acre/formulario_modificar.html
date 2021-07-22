@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <style>
+        body {
+            background-color: rgb(9, 9, 58);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="{% static 'acre/css/estilo.css' %}">
+    <title>Registro de capitulos</title>
+</head>
+
+<body>
+
+    <div style="color:white; background-color: rgb(75, 74, 74); ">
+        <p><a href="{% url 'home' %}" style="float: left; width: 50%; ;color: white;font-size: 30px;">Acre Home</a>
+
+            <a href="{% url 'iniciosesion'%}" style="color: white; text-align: right;"> <img src="{% static 'acre/imagenes/img_avatar.png' %}"
+                    alt="Avatar" class="avatar"> Inicia sesion</a>/<a href="registro.html"
+                style="color: white;">Registrate</a>
+        </p>
+        <div class="container">
+            <div class="row">
+                <!-- Manipular Messages-->
+                {% if messages %}
+                    <div>
+                        {% for x in messages %}
+                            <p style="color: red;">{{ x }}</p><br>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+    
+                <form action="{% url 'modificar' %}"  enctype="multipart/form-data"   id="form_modif" name="form_modif" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id">Id Capitulo: </label>
+                        <input class="form-control" value="{{capitulo_modificar.idcapitulo}}" id="id" name="id" type="text" required readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombre">Titulo Capitulo: </label>
+                        <input class="form-control" value="{{capitulo_modificar.nomcapitulo}}" id="nombre" name="nombre" type="text" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="numero">Numero Capitulo: </label>
+                        <input class="form-control" value="{{capitulo_modificar.numcapitulo}}" id="numero" name="numero" type="number" >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="url">Url de capitulo: </label>
+                        <input class="form-control" value="{{capitulo_modificar.url}}" id="url" name="url" type="text" required>
+                    </div>
+    
+                    
+                    <div class="form-group">
+                        <label for="imag">Imagen capitulo: </label>
+                        <input class="form-control" value="{{capitulo_modificar.imgcap}}" name="imag" type="file" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Dominio: </label>
+                        <select class="form-control" name="dominio" id="dominio">
+                            {% for i in dominio_capitulo %}
+                            {% if i.iddominio == capitulo_modificar.dominio.iddominio %}
+                                <option value="{{ i.iddominio }}" selected>{{ i.nomdominio }}</option>
+                            {% else %}
+                                <option value="{{ i.iddominio }}">{{ i.nomdominio }}</option>
+                            {% endif%}
+                            
+
+                        {% endfor %}
+                            
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Seccion: </label>
+                        <select class="form-control" name="seccion" id="seccion">
+                            {% for j in seccion_capitulo %}
+                            {% if j.idseccion == capitulo_modificar.seccion.idseccion %}
+                            <option value="{{ j.idseccion }}" selected>{{ j.nomseccion }}</option>
+                        {% else %}
+                            <option value="{{ j.idseccion }}">{{ j.nomseccion }}</option>
+                        {% endif%}
+                        
+
+                    {% endfor %}
+                            
+                        </select>
+                    </div>
+                    
+
+    
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+    
+                </form>
+            </div>
+        </div>
+</body>
+
+</html> 

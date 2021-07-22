@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <style>
+        body {
+            background-color: rgb(9, 9, 58);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="{% static 'acre/css/estilo.css' %}">
+    <title>Listado de videos</title>
+</head>
+
+<body>
+
+    <div style="color:white; background-color: rgb(75, 74, 74); ">
+        <p><a href="{% url 'home' %}" style="float: left; width: 50%; ;color: white;font-size: 30px;">Acre Home</a>
+
+            <a href="{% url 'iniciosesion'%}" style="color: white; text-align: right;"> <img src="{% static 'acre/imagenes/img_avatar.png' %}"
+                    alt="Avatar" class="avatar"> Inicia sesion</a>/<a href="registro.html"
+                style="color: white;">Registrate</a>
+        </p>
+    </div>
+    <div class="container" style="background-color: white;">
+        <div class="row">
+            <h1>Listado de Videos</h1>
+            <!-- Manipular Messages-->
+            {% if messages %}
+                <div>
+                    {% for x in messages %}
+                        <p style="color: red;">{{ x }}</p><br>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <form action="{% url 'modificar' %}" method="POST" id="form_modif" name="form_modif">
+                {% csrf_token %}
+        </div>
+
+        <div class="row">
+            <table border=2>
+                <tr>
+                    <td>url</td>
+                    <td>Nombre</td>
+                    <td>Numero</td>
+                    <td>dominio</td>
+                    <td>seccion</td>
+                    <td>Acción</td>
+                </tr>
+
+                {% for m in Capitulo%}
+                <tr>
+                    <td>{{ m.url }}</td>
+                    <td>{{ m.nomcapitulo }}</td>
+                    <td>{{ m.numcapitulo }}</td>
+                    <td>{{ m.dominio.nomdominio }}</td>
+                    <td>{{ m.seccion.nomseccion }}</td>
+                    
+                    <td><a href="{% url 'eliminar_video' m.idcapitulo %}">Eliminar</a><br>
+                        <a href="{% url 'modificar_capitulo' m.idcapitulo %}">Modificar</a>
+                        {% if m.seccion.idseccion == 3 %}
+                        <a href="{% url 'modificar_capitulo' m.idcapitulo %}">agregar/eliminar wiki</a>
+                        {% endif %}
+                    </td>
+                        
+                </tr>
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+    </div>
+</body>
+
+</html>    

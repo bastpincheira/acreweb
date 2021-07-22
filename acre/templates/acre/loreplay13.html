@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <style>
+        body {
+            background-image: url("{% static 'acre/imagenes/backhollow.jpg' %}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="{% static 'acre/css/estilo.css' %}">
+   
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'es,ca,eu,gl,en,fr,it,pt,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <title>Loreplay</title>
+</head>
+
+<body>
+
+    <body>
+
+
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+                <li data-target="#demo" data-slide-to="3"></li>
+                <li data-target="#demo" data-slide-to="4"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="{% url 'home' %}">
+
+                        <img src="{% static 'acre/imagenes/banner acre.jfif' %}" alt="acre logo" width="1100" height="500">
+                    </a>
+
+                </div>
+                <div class="carousel-item">
+                    <a href="{% url 'hollowknight' %}">
+                        <img src="{% static 'acre/imagenes/hollow banner.jpg' %}" alt="hollow banner" width="1100" height="500">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="{% url 'soulsborne' %}">
+                        <img src="{% static 'acre/imagenes/souls.jpg' %}" alt="souls" width="1100" height="500">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="sekiropage.html">
+                        <img src="{% static 'acre/imagenes/sekiro.jpg' %}" alt="sekiro banner" width="1100" height="500">
+                    </a>
+                </div>
+
+                <div class="carousel-item">
+                    <a href="littlenightmares.html">
+                        <img src="{% static 'acre/imagenes/little banner.jpeg' %}" alt="little banner" width="1100" height="500">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+        <div style="color:white; background-color: rgb(75, 74, 74); " >
+            <p><a href="{% url 'home' %}" style="float: left; width: 50%; ;color: white;font-size: 30px;">Acre Home</a>
+
+                <a href="{% url 'iniciosesion' %}" style="color: white; text-align: right;" > <img src="{% static 'acre/imagenes/img_avatar.png' %}"
+                        alt="Avatar" class="avatar"> Inicia sesion</a>/<a href="registro.html"
+                    style="color: white;">Registrate   </a>
+                    
+            </p>
+        
+        </div>
+        <p id="google_translate_element" class="google"></p>
+
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="{{Capitulo.url}}"
+                allowfullscreen></iframe>
+        </div>
+        
+       <a href="reporterror.html"> <button type="button" class="btn btn-danger"> <img src="{% static 'acre/imagenes/error--v1.png' %}" alt="error" height="30 px" width="30px"> Reportar error en el video</button></a>
+        <center>
+            <h3 style="color:white ; background-color: black;margin-top: 20px; margin-bottom: 20px;">Hollow wiki </h3>
+        </center>
+        <div class="container" style="background-color:rgb(18, 17, 73); color: white;">
+            <div class="row">
+                <h3 style="color:white ;">Lugares visitados</h3>
+                <div class="col-md-12 col-sm-12">
+                    <p>{{Wiki.texto}}</p>
+                    <p><img src="{{Wiki.imagen.url}}" alt="mapcue" style="float: right;">
+                    <h5>{{Wiki.titulo}}: </h5> {{Capitulo.Wiki.texto}}.
+                    </p>
+                    <div> Las ruinas del Palacio Blanco se pueden encontrar al este de la zona, junto con el cadáver de
+                        una carcasa real que habrá que golpear con el Aguijón Onírico para acceder.</div>
+                </div>
+
+                <div class="col-md-12 col-sm-12">
+                    <p><img src="{% static 'acre/imagenes/abyssm.webp' %}" alt="mapab" style="float: right; margin-top: 10px;">
+                    <h5>El abismo: </h5> Una fosa llena de cadáveres, hogar del Vacío. Aquí fue donde el Rey Pálido creó
+                    a los Receptáculos.
+
+                    Para acceder es necesario haber adquirido la Marca del rey en Límite del Reino.
+                    </p>
+                    
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+    </body>
+
+</html>

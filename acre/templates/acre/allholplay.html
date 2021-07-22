@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="{% static 'acre/css/estilo.css' %}">
+   
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'ca,eu,gl,en,fr,it,pt,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <body>
+
+
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+                <li data-target="#demo" data-slide-to="3"></li>
+                <li data-target="#demo" data-slide-to="4"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="{% url 'home' %}">
+
+                        <img src="{% static 'acre/imagenes/banner acre.jfif' %}" alt="acre logo" width="1100" height="500">
+                    </a>
+
+                </div>
+                <div class="carousel-item">
+                    <a href="{% url 'hollowknight' %}">
+                        <img src="{% static 'acre/imagenes/hollow banner.jpg' %}" alt="hollow banner" width="1100" height="500">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="{% url 'soulsborne'%}">
+                        <img src="{% static 'acre/imagenes/souls.jpg' %}" alt="souls" width="1100" height="500">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="sekiropage.html">
+                        <img src="{% static 'acre/imagenes/sekiro.jpg' %}" alt="sekiro banner" width="1100" height="500">
+                    </a>
+                </div>
+
+                <div class="carousel-item">
+                    <a href="littlenightmares.html">
+                        <img src="{% static 'acre/imagenes/little banner.jpeg' %}" alt="little banner" width="1100" height="500">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+        <div style="color:white; background-color: rgb(75, 74, 74); " >
+            <p><a href="{% url 'home'%}" style="float: left; width: 50%; ;color: white;font-size: 30px;">Acre Home</a>
+
+                <a href="{% url 'iniciosesion' %}" style="color: white; text-align: right;" > <img src="{% static 'acre/imagenes/img_avatar.png' %}"
+                        alt="Avatar" class="avatar"> Inicia sesion</a>/<a href="registro.html"
+                    style="color: white;">Registrate   </a>
+                    
+            </p>
+        
+        </div>
+        <p id="google_translate_element" class="google"></p>
+
+        <img src="{% static 'acre/imagenes/loreplay.jpg' %}" alt="holplay" class="responsive">
+
+        <div class="container" style="text-align: center; ">
+            <div class="row">
+                {% for m in Capitulo %}
+                <div style="margin-bottom: 10px;" class="col-md-4 col-sm-12"><div><a href="{% url 'hollplay13' m.idcapitulo %}"><img src="{{ m.imgcap.url }}" alt="demons2"> </a>
+                </div><b>{{ m.nomcapitulo }} {{ m.numcapitulo }}</b></div>
+                
+
+                {% endfor %}
+            </div>
+            
+                
+                
+
+            </div>
+        
+        
+
+
+        <center>
+            <div style="margin-top: 30px; margin-bottom: 10px;">www.Acre2021.esp</div>
+        </center>
+
+    </body>
+
+</html>

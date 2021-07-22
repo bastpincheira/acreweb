@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script> type="text/javascript"
+        $(document).ready(function(){
+            $("#mensaje_error").hide();
+            $("#report").submit(function(){
+                var mensaje = "Rellene la casilla Url";
+                if($("#url").val().trim().length == 0){
+                    mensaje = mensaje + "La casilla de Url no puede estar vacia";
+                
+                if(mensaje != "Rellene la casilla Url"){
+                    $("#mensaje_error").html(mensaje);
+                    $("#mensaje_error").show();
+                    event.preventDefault();
+    
+                }}
+            });
+    
+        });
+        
+        </script>
+        
+    <style>
+        body {
+            background-color:rgb(9, 9, 58);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="{% static 'acre/css/estilo.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div style="color:white; background-color: rgb(75, 74, 74); ">
+        <p><a href="home.html" style="float: left; width: 50%; ;color: white;font-size: 30px;">Acre Home</a>
+
+            <a href="iniciosesion.html" style="color: white; text-align: right;"> <img src="{% static 'acre/imagenes/img_avatar.png' %}"
+                    alt="Avatar" class="avatar"> Inicia sesion</a>/<a href="registro.html"
+                style="color: white;">Registrate</a>
+        </p>
+    </div>
+    <div class="container form" style="color: white;">
+        <h1 style="color: white;">Reportar error en video</h1>
+        <form action="home.html" method="GET" name="report" id="report">
+            <div id="mensaje_error" class="alert alert-danger"></div>
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="url">Link de video con error</label>
+                <input type="text" class="form-control" name="url" id="url" placeholder="Url de el video">
+
+            </div>
+            <div></div>
+            <label for="terror">Que problema se presenta:</label>
+            <select id="terror" name="terror">
+                <option value="Capituloerroneo">Capitulo erroneo</option>
+                <option value="Novideo">No existe video</option>
+                
+            </select>
+            <input type="submit" value="Enviar">
+            </div>
+            
+
+
+
+        </form>
+        
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
