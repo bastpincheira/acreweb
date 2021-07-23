@@ -2,10 +2,17 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Capitulo,  Dominio, Seccion, Wiki
 from django.contrib.auth import authenticate, login, logout
+import random
 # Create your views here.
 def home(request):
-    
-    return render(request,'acre/home.html')
+    capitulo = Capitulo.objects.last()
+    products = list(Capitulo.objects.all())
+
+    products = random.sample(products, 3)
+    contexto = {"Capitulo" : capitulo,
+                "Random" : products
+                }
+    return render(request,'acre/home.html',contexto)
 
 def hollowknight(request):
     
@@ -32,8 +39,9 @@ def hollowlore(request):
 def hollplay13(request, id):
     video = Capitulo.objects.get(idcapitulo = id)
     
+    wiki = Wiki.objects.get(capitulo_id = id)
     contexto = {"Capitulo" : video,
-                 
+                 "Wiki" : wiki,
                }
     return render (request,'acre/loreplay13.html', contexto)
 

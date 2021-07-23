@@ -104,56 +104,49 @@
             </p>
         
         </div>
-        <p id="google_translate_element" class="google"></p>
+        
 
         <!-- titulo -->
         <center>
-            <h3 style="color:white ; background-color: black;margin-top: 10px; margin-bottom: 20px;">Videos mas
-                recientes </h3>
+            <h3 style="color:white ; background-color: black;margin-top: 10px; margin-bottom: 20px;">Video mas
+                reciente </h3>
         </center>
         <!-- contenedores -->
-        <div class="container" style="text-align: center;">
+        <div class="container" style="text-align: center; ">
             <div class="row">
-                <div class="col-md-4 col-sm-12"> <a href="">
-                        <div><img src="{% static 'acre/imagenes/hthum13.jpg' %}" alt="thum 13">
-                    </a></div>
-                <b> Loreplay 13 Hollow knight</b>
+                
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="{{Capitulo.url}}"
+                        allowfullscreen></iframe>
+                </div>
+                
+
+                
             </div>
-            <div class="col-md-4 col-sm-12">
-                <div><img src="{% static 'acre/imagenes/hthum12.jpg' %}" alt="thum 12"></div>
-                <b>Loreplay 12 Hollow knight </b>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <div><img src="{% static 'acre/imagenes/little.jpg' %}" alt="thum little"></div>
-                <b>Little nightmares Todos los personajes, NPCs y jefes como nunca los habias visto</b>
+            
+                
+                
 
             </div>
-
-        </div>
-        </div>
+        
         <!-- titulo -->
         <center>
-            <h3 style="color:white ; background-color: black;margin-top: 20px; margin-bottom: 20px;">Ultimas
-                transmisiones </h3>
+            <h3 style="color:white ; background-color: black;margin-top: 20px; margin-bottom: 20px;">Capitulo random </h3>
         </center>
-        <div class="container" style="text-align: center;">
+        <div class="container" style="text-align: center; ">
             <div class="row">
-                <div class="col-md-4 col-sm-12">
-                    <div><img src="{% static 'acre/imagenes/retodemons2.jpg' %}" alt="demons2">
-                    </div><b> Demon's souls sin morir 2/3 </b>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div><img src="{% static 'acre/imagenes/retodemons3.jpg' %}" alt="demons3"></div>
-                    <b>Demon's souls sin morir 3/3</b>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div><img src="{% static 'acre/imagenes/sek1.jpg' %}" alt="thum little"></div>
-                    <b>Sekiro sin morir 1/3</b>
+                {% for m in Random %}
+                <div  style="margin-bottom: 10px; " class="col-md-4 col-sm-12"><div><a href="{% url 'hollplay13' m.idcapitulo %}"><img id="shadow"  src="{{ m.imgcap.url }}" alt="demons2"> </a>
+                </div><b>{{ m.nomcapitulo }}</b></div>
+                
 
-                </div>
+                {% endfor %}
+            </div>
+            
+                
+                
 
             </div>
-        </div>
         <center>
             <div style="margin-top: 30px; margin-bottom: 10px;">www.Acre2021.esp</div>
         </center>

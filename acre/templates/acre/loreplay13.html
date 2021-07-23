@@ -119,20 +119,16 @@
             <div class="row">
                 <h3 style="color:white ;">Lugares visitados</h3>
                 <div class="col-md-12 col-sm-12">
-                    <p>{{Wiki.texto}}</p>
+                    
                     <p><img src="{{Wiki.imagen.url}}" alt="mapcue" style="float: right;">
-                    <h5>{{Wiki.titulo}}: </h5> {{Capitulo.Wiki.texto}}.
+                    <h5>{{Wiki.titulo}}: </h5> 
                     </p>
-                    <div> Las ruinas del Palacio Blanco se pueden encontrar al este de la zona, junto con el cadáver de
-                        una carcasa real que habrá que golpear con el Aguijón Onírico para acceder.</div>
+                    <div> {{Wiki.texto}}</div>
                 </div>
 
                 <div class="col-md-12 col-sm-12">
-                    <p><img src="{% static 'acre/imagenes/abyssm.webp' %}" alt="mapab" style="float: right; margin-top: 10px;">
-                    <h5>El abismo: </h5> Una fosa llena de cadáveres, hogar del Vacío. Aquí fue donde el Rey Pálido creó
-                    a los Receptáculos.
-
-                    Para acceder es necesario haber adquirido la Marca del rey en Límite del Reino.
+                    <p><img src="{{Wiki.imagen2.url}}" alt="mapab" style="float: right; margin-top: 10px;">
+                    <h5>{{Wiki.titulo2}}: </h5> {{Wiki.texto2}}
                     </p>
                     
                 </div>
