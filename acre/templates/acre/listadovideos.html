@@ -40,8 +40,9 @@
                     {% for x in messages %}
                         <p style="color: red;">{{ x }}</p><br>
                     {% endfor %}
-                </div>
+                </div> <br>
             {% endif %}
+            <br>
             <form action="{% url 'modificar' %}" method="POST" id="form_modif" name="form_modif">
                 {% csrf_token %}
         </div>

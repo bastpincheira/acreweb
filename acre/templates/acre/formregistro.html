@@ -38,10 +38,11 @@
                         {% for x in messages %}
                             <p style="color: red;">{{ x }}</p><br>
                         {% endfor %}
+                        <br>
                     </div>
                 {% endif %}
-    
-                <form action="{% url 'registro' %}"  enctype="multipart/form-data" id="formregistro" name="formregistro" method="POST">
+                <br>
+                <form action="{% url 'registro' %}"  enctype="multipart/form-data" id="form_registro" name="form_registro" method="POST">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="idcap">id capitulo: </label>

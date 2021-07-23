@@ -37,10 +37,11 @@
                     <div>
                         {% for x in messages %}
                             <p style="color: red;">{{ x }}</p><br>
-                        {% endfor %}
+                        {% endfor %} 
+                        <br>
                     </div>
                 {% endif %}
-    
+                <br>
                 <form action="{% url 'modificar' %}"  enctype="multipart/form-data"   id="form_modif" name="form_modif" method="POST">
                     {% csrf_token %}
                     <div class="form-group">

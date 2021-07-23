@@ -3,6 +3,9 @@ from django.contrib import messages
 from .models import Capitulo,  Dominio, Seccion, Wiki
 from django.contrib.auth import authenticate, login, logout
 import random
+from django.utils.datastructures import MultiValueDictKeyError
+
+
 # Create your views here.
 def home(request):
     capitulo = Capitulo.objects.last()
