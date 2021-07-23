@@ -87,16 +87,21 @@
             </a>
         </div>
         <div style="color:white; background-color: rgb(75, 74, 74); " >
-            <p><a href="home.html" style="float: left; width: 50%; ;color: white;font-size: 30px;">Acre Home</a>
+            <p><a href="{% url 'home' %}" style="float: left; width: 50%; ;color: white;font-size: 30px;">Acre Home</a>
 
-                <a href="iniciosesion.html" style="color: white; text-align: right;" > <img src="{% static 'acre/imagenes/img_avatar.png' %}"
-                        alt="Avatar" class="avatar"> Inicia sesion</a>/<a href="registro.html"
-                    style="color: white;">Registrate   </a>
+                
+                    {% if user.is_authenticated %}
                     
-            </p>
-        
+                        <p>Bienvenido {{ user.username }}</p>
+                        <p><a href="{% url 'logout' %}">Cerrar Sesión</a>
+                        </p>
+                    {% else %}
+                    
+                        <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+                    
+                    {% endif %}
+                    
         </div>
-        
 
        <a href="{% url 'demons'%}"> <img style="margin-top: 10px;" src="{% static 'acre/imagenes/demomon.jpg' %}" alt="guia" class="responsive"></a>
         <img src="{% static 'acre/imagenes/ds1.jpg' %}" alt="guia" class="responsive">

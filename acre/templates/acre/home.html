@@ -93,8 +93,8 @@
                     {% if user.is_authenticated %}
                     
                         <p>Bienvenido {{ user.username }}</p>
-                        <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
-                    
+                        <p><a href="{% url 'logout' %}">Cerrar Sesión</a>
+                        </p>
                     {% else %}
                     
                         <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
