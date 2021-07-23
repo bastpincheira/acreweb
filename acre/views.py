@@ -50,8 +50,11 @@ def hollowlore(request):
 
 def hollplay13(request, id):
     video = Capitulo.objects.get(idcapitulo = id)
+    try:
+        wiki = Wiki.objects.get(capitulo_id = id)
+    except Wiki.DoesNotExist:
+         wiki = None
     
-    wiki = Wiki.objects.get(capitulo_id = id)
     contexto = {"Capitulo" : video,
                  "Wiki" : wiki,
                }
