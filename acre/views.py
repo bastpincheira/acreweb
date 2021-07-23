@@ -14,6 +14,15 @@ def home(request):
                 }
     return render(request,'acre/home.html',contexto)
 
+def reproductor(request, id):
+    capitulo = Capitulo.objects.get(idcapitulo = id)
+    
+    
+    contexto = {"Capitulo" : capitulo,
+                
+                }
+    return render(request,'acre/reproductor.html',contexto)    
+
 def hollowknight(request):
     
     return render(request,'acre/hollowknight.html')

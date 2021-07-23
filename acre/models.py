@@ -21,7 +21,7 @@ class Capitulo(models.Model):
     nomcapitulo = models.CharField(max_length=80,verbose_name='Nombre de capitulo')
     numcapitulo = models.IntegerField(null= True, verbose_name='Numero de capitulo')
     url = models.CharField(max_length=200,verbose_name='Link de video')
-    imgcap = models.ImageField(upload_to="capitulo", blank=False)
+    imgcap = models.ImageField(upload_to="capitulo", null=True)
     dominio = models.ForeignKey(Dominio,on_delete=models.CASCADE)
     seccion = models.ForeignKey(Seccion,on_delete=models.CASCADE)
 

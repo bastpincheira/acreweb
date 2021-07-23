@@ -96,14 +96,14 @@
             </p>
         
         </div>
-        <p id="google_translate_element" class="google"></p>
+        
 
         <img src="{% static 'acre/imagenes/lore.jpg' %}" alt="holplay" class="responsive">
 
         <div class="container" style="text-align: center; ">
             <div class="row">
                 {% for m in Capitulo %}
-                <div  style="margin-bottom: 10px; " class="col-md-4 col-sm-12"><div><a href="{% url 'hollplay13' m.idcapitulo %}"><img id="shadow"  src="{{ m.imgcap.url }}" alt="demons2"> </a>
+                <div  style="margin-bottom: 10px; " class="col-md-4 col-sm-12"><div><a href="{% url 'reproductor' m.idcapitulo %}"><img id="shadow"  src="{{ m.imgcap.url }}" alt="demons2"> </a>
                 </div><b>{{ m.nomcapitulo }}</b></div>
                 
 

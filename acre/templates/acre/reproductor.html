@@ -16,18 +16,26 @@
             height: 100%;
         }
     </style>
+    <style>
+        body {
+            background-image: url("{% static 'acre/imagenes/backhollow.jpg' %}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
     <link type="text/css" rel="stylesheet" href="{% static 'acre/css/estilo.css' %}">
    
 
     <script type="text/javascript">
         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'ca,eu,gl,en,fr,it,pt,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true }, 'google_translate_element');
+            new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'es,ca,eu,gl,en,fr,it,pt,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true }, 'google_translate_element');
         }
     </script>
 
     <script type="text/javascript"
         src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <title>Document</title>
+    <title>Loreplay</title>
 </head>
 
 <body>
@@ -49,7 +57,7 @@
             <!-- The slideshow -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a href="home.html">
+                    <a href="{% url 'home' %}">
 
                         <img src="{% static 'acre/imagenes/banner acre.jfif' %}" alt="acre logo" width="1100" height="500">
                     </a>
@@ -61,7 +69,7 @@
                     </a>
                 </div>
                 <div class="carousel-item">
-                    <a href="soulsborne.html">
+                    <a href="{% url 'soulsborne' %}">
                         <img src="{% static 'acre/imagenes/souls.jpg' %}" alt="souls" width="1100" height="500">
                     </a>
                 </div>
@@ -87,9 +95,9 @@
             </a>
         </div>
         <div style="color:white; background-color: rgb(75, 74, 74); " >
-            <p><a href="home.html" style="float: left; width: 50%; ;color: white;font-size: 30px;">Acre Home</a>
+            <p><a href="{% url 'home' %}" style="float: left; width: 50%; ;color: white;font-size: 30px;">Acre Home</a>
 
-                <a href="iniciosesion.html" style="color: white; text-align: right;" > <img src="{% static 'acre/imagenes/img_avatar.png' %}"
+                <a href="{% url 'iniciosesion' %}" style="color: white; text-align: right;" > <img src="{% static 'acre/imagenes/img_avatar.png' %}"
                         alt="Avatar" class="avatar"> Inicia sesion</a>/<a href="registro.html"
                     style="color: white;">Registrate   </a>
                     
@@ -98,13 +106,15 @@
         </div>
         
 
-       <a href="{% url 'demons'%}"> <img style="margin-top: 10px;" src="{% static 'acre/imagenes/demomon.jpg' %}" alt="guia" class="responsive"></a>
-        <img src="{% static 'acre/imagenes/ds1.jpg' %}" alt="guia" class="responsive">
-        <img src="{% static 'acre/imagenes/souls 2.jpg' %}" alt="guia" class="responsive">
-        <img src="{% static 'acre/imagenes/souls 34.jpg' %}" alt="guia" class="responsive">
-        <img src="{% static 'acre/imagenes/bloodborne.jpg' %}" alt="guia" class="responsive">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="{{Capitulo.url}}"
+                allowfullscreen></iframe>
+        </div>
         
-          
+       
+
+
+
     </body>
 
 </html>
