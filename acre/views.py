@@ -82,6 +82,7 @@ def lista_dominio(request):
 
 
 def guardar_capitulo(request):
+    
     n_idcap = request.POST['idcap']
     n_nomcap = request.POST['nomcapi']
     n_numcap = request.POST['numcap']
